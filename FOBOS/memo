@@ -1,0 +1,9 @@
+$ perl svm_fobos.pl a9a.txt 0.06 0.0 < a9a.t
+training..........finish!
+Result : 0.835513789079295 (13603/16281)
+Zero element : 0.0487804878048781 (6/123)
+
+$ perl svm_fobos.pl a9a.txt 0.06 0.005 < a9a.t
+training..........finish!
+Result : 0.830907192432897 (13528/16281)
+Zero element : 0.650406504065041 (80/123)
