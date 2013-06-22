@@ -30,10 +30,10 @@ public:
 
   //(bwt_text, F) -> text)
   std::string decode(std::string bwt_text, std::string F){
-    std::map<char,int> C; //C[c] : 文字cよりも小さい文字の出現個数の和
+    std::map<char,int> C;
     for(size_t i=0; i<F.length(); i++){
       if(C.count(F[i]) == 0){
-	C[F[i]] = i;
+        C[F[i]] = i;
       }
     }
 
@@ -42,7 +42,7 @@ public:
     for(size_t i=0; i<F.length(); i++){
       int ri = 0;
       for(size_t j=0; j<=i; j++){
-	if(bwt_text[j] == bwt_text[i]) ri++;
+        if(bwt_text[j] == bwt_text[i]) ri++;
       }
       LF.push_back(C[bwt_text[i]] + ri - 1);
     }
@@ -53,18 +53,18 @@ public:
     for(int i=F.length()-1; i>=0; i--){
       if(i>=1) ret[i-1] = bwt_text[s];
       s = LF[s];
-
+      
       //std::cout << ret << std::endl;
     }
     
     return ret;
   }
-
+  
 };
 
 
 int main(){
-
+  
   BWT bwt;
   
   std::string text = "abracadabra";
@@ -73,13 +73,13 @@ int main(){
   
   std::cout << "[text]" << std::endl;
   std::cout << text << std::endl;
-
+  
   std::cout << "[encode]" << std::endl;
   std::cout << ret.first << std::endl;
   std::cout << ret.second << std::endl;
-
+  
   std::cout << "[decode]" << std::endl;
   std::cout << bwt.decode(ret.first, ret.second) << std::endl;
-
+  
   return 0;
 }
